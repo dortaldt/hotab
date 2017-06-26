@@ -1,12 +1,12 @@
 {
   "manifest_version": 2,
 
-  "name": "Getting started example",
+  "name": "Hotab - find your way through the tab forst",
   "description": "This extension shows a Google Image search result for the current page",
   "version": "1.0",
   "background": {
       "scripts": [
-        "popup.js"
+        "background.js"
       ],
       "persistent": true
     },
@@ -14,10 +14,9 @@
     "default_icon": "icon.png"
   },
   "permissions": [
-    "activeTab",
     "https://*/*",
    "http://*/*",
    "tabs",
-    "https://ajax.googleapis.com/"
+   "https://ajax.googleapis.com/"
   ]
 }
