@@ -23,22 +23,21 @@ var counter = [
 
 var buffer = 16000;
 var inter = buffer/counter.length;
+var timeouts = [];
 
 function changeLink(j){
-    setTimeout(function(){
-      imgLInk.href = counter[j];
-      console.log(j +' and counting...');
-      if(j= (counter.length -1)){
-        singleScript = 0;
-      }
-      else if (j = 0) {
-        document.createElement ="var singleScript = true;"
-      }
-    }, buffer);
-  };
+  var timeFunction = setTimeout(function(){
+    imgLInk.href = counter[j];
+    timeouts.push(timeFunction);
+    if (j == 0) {
+      isRunning = true;
+      console.log('isRunning is now ' + isRunning)
+    }
+  }, buffer);
+};
 
-//chnage the favicon links
-var changeLoop = function(){
+//create timeout functions
+var activeTimer = function(){
   for(j=0; j < counter.length; ++j){
     changeLink(j)
     buffer -= inter;
@@ -47,9 +46,19 @@ var changeLoop = function(){
 };
 
 //checks if the timer is running and if not- activiting the loop
-if(typeof singleScript == "undefined"){
+if(typeof isRunning == "undefined"){
+  activeTimer();
+}
+
+else {
+  for(l = 0; l < timeouts.length ; ++l ){
+    clearTimeout(l);
+    console.log(timeouts)
+  }
   changeLoop();
-};
+  console.log('restarting')
+
+}
 
 
 //creating new images
