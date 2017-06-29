@@ -9,7 +9,7 @@ chrome.tabs.onActivated.addListener( function(tab) {
 	// for the current tab, inject the "inject.js" file & execute it
 	chrome.tabs.executeScript(tabsList[1],
     {
-      file:'timer.js'
+      file:'script.js'
     }
   );
     // {code:'function(){console.log("test")}'}
