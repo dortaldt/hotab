@@ -21,12 +21,14 @@ var changeImages = function(imageUrl){
     console.log('url is now ' + imageUrl)
 };
 
-var timer = function(){
-    for(i=0; i<images.length; ++i){
-        var timeout = setTimeout(
-            changeImages(images[i]),5000
-        )
-    };
-};
+var i = 0;
+function createIcons(){
+  setTimeout(function(){
+    changeImages(images[i]);
+    ++i;
+    if (i == images.length) return;
+    createIcons();
+  }, 1000);
+}
 
-timer();
+createIcons();
