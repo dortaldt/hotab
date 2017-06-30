@@ -12,5 +12,4 @@ chrome.tabs.onActivated.addListener( function(tab) {
       file:'script.js'
     }
   );
-    // {code:'function(){console.log("test")}'}
 });
